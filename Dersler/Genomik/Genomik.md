@@ -132,10 +132,10 @@ SAM dosyasi insan gozunun okuyabilecegi text formatinda bir dosyadir ve icinde h
 
 - Referansa hizalayalim:
 ```
-			samtools faidx ref.fasta
-			samtools view -bt ref.fasta.fai alignment.sam > alignment.bam
-			samtools sort alignment.bam -o alignment_sorted.bam
-			samtools index alignment_sorted.bam
+samtools faidx ref.fasta
+samtools view -bt ref.fasta.fai alignment.sam > alignment.bam
+samtools sort alignment.bam -o alignment_sorted.bam
+samtools index alignment_sorted.bam
  ```    
 
 Yerlestirme bitince ekranda kisa bir rapor belirecek. 
@@ -147,7 +147,7 @@ Bu formatin icerigiyle ilgili daha fazla bilgi icin yandaki linke goz atabilirsi
 
 - Bakalim:
  ```   
-			samtools tview -d C alignment_sorted.bam ref.fasta
+samtools tview -d C alignment_sorted.bam ref.fasta
  ```   
   # Derinlik ve Kapsam
 Peki elimizdeki diziler genomun yuzde kacini kapsiyor? Ve de kapsadigi yerler hakkinda ne kadar kesin konusabiliriz? 
@@ -156,14 +156,14 @@ Bu sorularin cevabini vermek icin dizilerimizin kapsam (coverage) ve derinlik, y
 
 - Derinligi incelemek icin python kullanacagiz. Bunun icin asagidaki python kodunu biliyorsaniz kendiniz python'da bilmiyorsaniz birlikte google colab'de calistiracagiz. Once samtools kullanarak derinlik dosyasini uretin. Gerekiyorsa onu sisteminize kopyalayin.
 ```
-			samtools depth alignment_sorted.bam > depth.csv
+samtools depth alignment_sorted.bam > depth.csv
 
-			# bu kisim python'da
-			import matplotlib.pyplot as plt
-			import numpy as np
-			import pandas as pd
-			dataset = pd.read_csv('depth.csv', sep='\t', names=["Chr", "Position", "Depth"])
-			dataset
+# bu kisim python'da
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+dataset = pd.read_csv('depth.csv', sep='\t', names=["Chr", "Position", "Depth"])
+dataset
  ```     
   # Varyantlari bulmak
 
@@ -173,8 +173,8 @@ Kullandigimiz yerlestirme teknikleri kisa dizileri dogru yerlerine her zaman cok
 
 - Varyantlari bulalim:
 ```
-			cp ../../egitim/bcf.sh .
-			sbatch bcf.sh
+cp ../../egitim/bcf.sh .
+sbatch bcf.sh
 
  ```  
 
@@ -184,19 +184,19 @@ Kullandigimiz yerlestirme teknikleri kisa dizileri dogru yerlerine her zaman cok
  Bu arada koda bakalim. Sonra da bitmis mi diye kontrol edelim.
 
 ```
-			cat bcf.sh
-			sacct
+cat bcf.sh
+sacct
 
  ```    
  
 - VCF dosyasini analiz etmek icin varyantlarin indexlenmesi gerekebilir. Bunun icin asagidaki komutu girecegiz:
 ```
-			bcftools index calls.vcf.gz
+bcftools index calls.vcf.gz
 		
   ```     
   # Varyantlara ilk Analiz
   
 - VCF dosyasinin icinde ne var? Bcftools’un çok yararlı bir istatistik komutu bize bunu soyleyebilir: 
 ```
-			bcftools stats calls.vcf.gz
+bcftools stats calls.vcf.gz
  ```     
