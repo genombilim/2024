@@ -20,23 +20,23 @@ Asagidaki kodlari tek tek terminalinize kopyalayip yapistiracaksiniz. Sondaki no
 
 Şifrenizi yazarken ekranda hiç bir imleç belirmez. Endişe etmeyin.
  ```
-			ssh egitimXX@levrek1.ulakbim.gov.tr
-			şifre: adiniza verilen şifre
+ssh egitimXX@levrek1.ulakbim.gov.tr
+şifre: adiniza verilen şifre
 
 ```
-- Kullanacagimiz programlari hesabiniza yuklemek icin asagidaki satiri girin:
+- Kullanacagimiz programlari hesabiniza yuklemek icin asagidaki satirlari girin. Son satira XX yerine yine size verilrn numarayi girin lutfen. Yoksa son satir hata verecektir.  
 ```
-			cd ../egitim
-			source miniconda3/bin/activate 
-			conda activate bioinformatics
-			cd ../egitimX	 
+cd ../egitim
+source miniconda3/bin/activate 
+conda activate bioinformatics
+cd ../egitimXX	 
 ```
 
-- Trubaya baglaninca ilk olarak genomik diye bir dizin olusturun.
+- Genomik diye bir dizin olusturun.
 
 ```
-			mkdir Genomik
-			cd Genomik
+mkdir Genomik
+cd Genomik
 
 ```
 
@@ -52,7 +52,7 @@ Bugun biz size zaten okumalari indirdik. Onu kendi dosyaniza kopyalayacaksiniz. 
 - Okumalarinizi fastq-dump'i kullanarak indirin:  
 
 ```
-			cp ../../egitim/reads.fastq .
+cp ../../egitim/reads.fastq .
   ```
 
 ![Steps-in-next-generation-sequencing-A-Extracted-DNA-is-randomly-broken-into-1000-bp](https://github.com/genombilim/2023/assets/37342417/6b4693c3-77b5-46e3-b74d-467425c933f8)
@@ -63,8 +63,8 @@ Bugun biz size zaten okumalari indirdik. Onu kendi dosyaniza kopyalayacaksiniz. 
 
 Haydi indirdigimiz dosyaya bakalim. Neler dikkatinizi cekiyor? 
 ```
-			head reads.fastq
-  ```
+head reads.fastq
+```
 ![Screen-Shot-2018-01-07-at-3 40 32-PM-1024x354](https://github.com/genombilim/2023/assets/37342417/1a2bed3d-f76d-442d-b74d-bf32657b3c3b)
 
   # Filtreleme
@@ -79,23 +79,28 @@ Neler bakabilirsiniz ve sizce niye bunlara bakmak isteriz?
 
 - Okumalarinizi kesip filtreleyecegiz. 
 ```
-			fastx_trimmer -f 20 -l 240 -i reads.fastq -o reads_trimmed.fastq
-			fastq_quality_filter -q 30 -p 95 -i reads_trimmed.fastq -o reads_filtered.fastq
+fastx_trimmer -f 20 -l 240 -i reads.fastq -o reads_trimmed.fastq
+fastq_quality_filter -q 30 -p 95 -i reads_trimmed.fastq -o reads_filtered.fastq
   ```    
-- Komut -h yazarak her bir komutun ne yaptigina bakin.
--  Simdi de bu websitesine bakin yaninizdaki kisi ile : http://hannonlab.cshl.edu/fastx_toolkit/commandline.html Listeden isinize yarayabilecek iki komut bulup sinifta paylasin. 
- 
-- Kesilmis ve filtrelenmis dosyalariniza da fastqc ile bakalim. Ne goruyorsunuz?
-Neden bu adimlara gerek var?
+- Komut -h yazarak her bir komutun ne yaptigina bakin ya da bu websitesine bakin: http://hannonlab.cshl.edu/fastx_toolkit/commandline.html 
+
+- Kesilmis ve filtrelenmis dosyalariniza da fastqc ile bakalim. Asagidaki komutlar html dosyalari üretecek. Bu dosyalari kendi lokal makinaniza indirin ve üstüne iki kere tiklayarak internette acin.
+```
+fastqc reads.fastq
+fastqc reads_trimmed.fastq
+fastqc reads_filtered.fastq
+```
+
+- Ne goruyorsunuz?
 Neden once kestik, sonra filtreledik?
 
   # Referans Genomuna Hizalamak: Insan Metgenomu
 - Mitokondri icin referans genomunu indirecegiz. Bunun icin UCSC genome browser'ina gidin, Download kismindan sirasiyla Human, Chromosomes Chromosome M'i bulun.. Link yazan kisma buldugunuz dosyanin linkini kopyalayin:
 ```
-			wget ‘link’
-			gunzip chrM.fa.gz
-			cp chrM.fa ref.fasta
-  ```    
+wget ‘link’
+gunzip chrM.fa.gz
+cp chrM.fa ref.fasta
+```    
 Dizileri yerlestirmek eslestirmece oyunu gibi dusunulebilir. Amac kisa dizilerin aynilarini (veya benzerlerini) buyuk dizide yani genomda bulmaktir. 
 ![image003](https://github.com/genombilim/2023/assets/37342417/e78cd5cd-4c55-4a0c-ac11-53b8b45e6a6b)
 
@@ -106,20 +111,20 @@ Biz yerlestirme icin bowtie2 programini kullanacagiz.
 
 - Referansa hizalayalim, onun icin once referansi indeksleyelim:
 ```
-			bowtie2-build ref.fasta ref
+bowtie2-build ref.fasta ref
  ```    
 
-Yerlestirme icin ilk asama SAM (Sequence Alignment/Map) dosyasini uretmek. Bu asamayi komut satirindan yaparsaniz, uzun surdugu icin bunu bir script olarak yazip is olarak yollayacagiz. Bunun icin is scriptini asagidaki gibi kendinize kopyyalayin ve calistirin. 
+Yerlestirme icin ilk asama SAM (Sequence Alignment/Map) dosyasini uretmek. Bu asamayi komut satirindan yaparsaniz, uzun surdugu icin bunu bir script olarak yazip is olarak yollayacagiz. Bunun icin is scriptini asagidaki gibi kendinize kopyalayin ve calistirin. 
 ```
-			cp ../../egitim/samtools.sh .
-			sbatch samtools.sh
+cp ../../egitim/samtools.sh .
+sbatch samtools.sh
 
  ```    
 Bu arada koda bakalim. Sonra da bitmis mi diye kontrol edelim.
 
 ```
-			cat samtools.sh
-			sacct
+cat samtools.sh
+sacct
 
  ```    
 
