@@ -14,13 +14,11 @@ Asagidaki kodlari tek tek terminalinize kopyalayip yapistiracaksiniz. Sondaki no
  ```
 ssh egitimXX@levrek1.ulakbim.gov.tr
 şifre: adiniza verilen şifre
-
 ``` 
 - Trubaya baglaninca ilk olarak kendinize ait bir dizin olusturun. Kendi ilk isminiz kucuk harflerle ve bitisik olarak.
 ```
 mkdir <isminiz>
 cd <isminiz>
-
 ```
 
 Home directory (konum/altdizin): bash'i baslattiginizda bulundugunuz ilk konum.
@@ -121,7 +119,7 @@ Dosya ismini girerken mutlaka TAB kullanın! TAB'in zaman kazandirmasi disinda e
 
 ## Dosya silmek:
 ```
-rm birinci_dosyam
+rm ilk_dosyam.txt
 ```
 tum silmek istediklerimizi rm’un arkasina yazip tek tusla silebiliriz. 
 
