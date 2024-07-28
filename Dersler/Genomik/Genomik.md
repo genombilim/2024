@@ -22,8 +22,8 @@ Asagidaki kodlari tek tek terminalinize kopyalayip yapistiracaksiniz. Sondaki no
  ```
 ssh egitimXX@levrek1.ulakbim.gov.tr
 şifre: adiniza verilen şifre
-
 ```
+
 - Kullanacagimiz programlari hesabiniza yuklemek icin asagidaki satirlari girin. Son satira XX yerine yine size verilrn numarayi girin lutfen. Yoksa son satir hata verecektir.  
 ```
 cd ../egitim
@@ -53,7 +53,7 @@ Bugun biz size zaten okumalari indirdik. Onu kendi dosyaniza kopyalayacaksiniz. 
  
 ```
 cp ../../egitim/reads.fastq .
-  ```
+```
 
 ![Steps-in-next-generation-sequencing-A-Extracted-DNA-is-randomly-broken-into-1000-bp](https://github.com/genombilim/2023/assets/37342417/6b4693c3-77b5-46e3-b74d-467425c933f8)
 
@@ -80,6 +80,8 @@ Neler bakabilirsiniz ve sizce niye bunlara bakmak isteriz?
 - Okumalarinizi kesip filtreleyecegiz. 
 ```
 fastx_trimmer -f 20 -l 240 -i reads.fastq -o reads_trimmed.fastq
+```
+```   
 fastq_quality_filter -q 30 -p 95 -i reads_trimmed.fastq -o reads_filtered.fastq
   ```    
 - Komut -h yazarak her bir komutun ne yaptigina bakin ya da bu websitesine bakin: http://hannonlab.cshl.edu/fastx_toolkit/commandline.html 
