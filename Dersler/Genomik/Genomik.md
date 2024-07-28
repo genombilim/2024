@@ -159,13 +159,20 @@ Peki elimizdeki diziler genomun yuzde kacini kapsiyor? Ve de kapsadigi yerler ha
 
 Bu sorularin cevabini vermek icin dizilerimizin kapsam (coverage) ve derinlik, yani bir noktayi kac kere kapsadigi (depth) degerlerini ogrenmemiz gerekir. 
 
-- Derinligi incelemek icin python kullanacagiz. Bunun icin asagidaki python kodunu biliyorsaniz kendiniz python'da bilmiyorsaniz birlikte google colab'de calistiracagiz. Once samtools kullanarak derinlik dosyasini uretin. Gerekiyorsa onu sisteminize kopyalayin.
+- Derinligi incelemek icin python kullanacagiz. 
 ```
 samtools depth alignment_sorted.bam > depth.csv
 ```
 ```
+cp ../../egitim/depth_coverage_analysis.py .
+```
+```
 python depth_coverage_analysis.py
-```     
+```
+```
+cat depth_coverage_analysis.py
+```
+ depth_histogram.png diye bir figur ürettik. 
   # Varyantlari bulmak
 
 Varyantlari tespit demek referans genom ve elimizdeki dizi arasindaki mutasyonlari bulacağız demek. Bunun icin bcftools’u kullanacagiz. 
@@ -174,32 +181,21 @@ Kullandigimiz yerlestirme teknikleri kisa dizileri dogru yerlerine her zaman cok
 
 - Varyantlari bulalim:
 ```
-cp ../../egitim/bcf.sh .
+bcftools mpileup -f ref.fasta alignment_sorted.bam | bcftools call -mv -Ov -o calls.vcf
 ```
-``` 
-sbatch bcf.sh
-
- ```  
-
- Eger vaktin varsa, vcf dosyani acip yandaki link yardimiyla icerigini anlamaya calisabilirsin: http://samtools.github.io/hts-specs/VCFv4.2.pdf
-
-
- Bu arada koda bakalim. Sonra da bitmis mi diye kontrol edelim.
-
+Eger vaktin varsa, vcf dosyani acip yandaki link yardimiyla icerigini anlamaya calisabilirsin: http://samtools.github.io/hts-specs/VCFv4.2.pdf
+ve de tabi ürettigimiz dosyaya bakalim.
 ```
-cat bcf.sh
+cat calls.vcf
 ```
-``` 
-sacct
-```    
- 
-- VCF dosyasini analiz etmek icin varyantlarin indexlenmesi gerekebilir. Bunun icin asagidaki komutu girecegiz:
-```
-bcftools index calls.vcf.gz
-```     
+    
   # Varyantlara ilk Analiz
   
 - VCF dosyasinin icinde ne var? Bcftools’un çok yararlı bir istatistik komutu bize bunu soyleyebilir: 
 ```
-bcftools stats calls.vcf.gz
-```     
+bcftools stats calls.vcf > calls.vchk
+```
+```
+plot-vcfstats -p plots calls.vchk
+```  
+plots diye bir dizin üretti bu komut. Icindeki substitutions.0.png figurunu cift tiklayarak ac.
