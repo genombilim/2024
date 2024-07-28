@@ -136,8 +136,8 @@ Veri cok buyuk oldugundan text icin kullandiginiz grafik arayuzlu programlarin v
 
 ## Dosyalari kopyalamak:
 ```
-cp ../../egitim/bash_dersi_dosyalari/tb1-protein.fasta .
-cp ../../egitim/bash_dersi_dosyalari/tga1-protein.fasta .
+cp ../../../egitim/bash_dersi_dosyalari/tb1-protein.fasta .
+cp ../../../egitim/bash_dersi_dosyalari/tga1-protein.fasta .
 ls
 ```
 			
@@ -192,7 +192,7 @@ grep -o CRGEG proteins.fasta
    
 Simdi de DNA fastası acalim.
 ```
-cp ../../../egitim/bash_dersi_dosyalari/tb1.fasta .
+cp ../../../../egitim/bash_dersi_dosyalari/tb1.fasta .
 cat tb1.fasta
 ```
 			
