@@ -43,6 +43,17 @@ ls
 Soru: komut neden acikca 'list' olarak kullanilmiyor da 'ls' olarak kullaniliyor?
 Cevap: kisaltma ~ zaman
 
+## Peki ilgili arac icin bulunan seceneklere dair nereden bilgi alabiliriz?
+Man sayfasi ilgili araci calistiracak komutlar uzerine bilgi verir:
+
+```
+man ls
+```
+			
+koseli parantez icinde verilen secenekler opsiyoneldir. Komut o secenekler olmadan da caisir. Fakat secenekler size cok faydali calismanizda yardimci olur. Secenekleri gozden gecirmeniz (man ile) cok faydali.
+
+'man' sayfasindan ‘q’ ile cikabiliriz.
+
 ## Nasil bir altdizine gidecegiz?
 ```
 cd <isminiz>
@@ -70,46 +81,24 @@ dersin sonunda bunu tekrar komutlayip yeni dosyaya kaydedebilirsiniz.
 mkdir bash_dersi
 ls
 ```
-			
-## Tek adimda istenilen dizine gitmek:
-once bir geri cikalim:
 
-```
-cd ../
-```
-			
-sonra olusturdugumuz dosyanin icine girelim:
-
-```
-cd /<isminiz>/bash_dersi/
-```
-			
- '/' altdizin oldugunu belirtiyor & farkli altdizinleri hiyerarsiye gore diziyor – ust konumdan alt konuma dogru.
-
-Bir dizinden/konumdan 'home-directory'ye gecmenin kisa yolu:
+## Bir dizinden/konumdan 'home-directory'ye gecmenin kisa yolu:
 ```
 cd ~
 ```
-			
-## Peki ilgili arac icin bulunan seceneklere dair nereden bilgi alabiliriz?
-Man sayfasi ilgili araci calistiracak komutlar uzerine bilgi verir:
 
-```
-man ls
-```
-			
-koseli parantez icinde verilen secenekler opsiyoneldir. Komut o secenekler olmadan da caisir. Fakat secenekler size cok faydali calismanizda yardimci olur. Secenekleri gozden gecirmeniz (man ile) cok faydali.
-
-'man' sayfasindan ‘q’ ile cikabiliriz.
-
-## Yeni Dosya uretmek:
-
+## Tek adimda istenilen dizine gitmek:
 ```
 cd <isminiz>/bash_dersi/
+```
+/ isareti altdizin oldugunu belirtiyor & farkli altdizinleri hiyerarsiye gore diziyor – ust konumdan alt konuma dogru.
+
+## Yeni Dosya uretmek:
+```
 echo bu benim ilk dosyam > ilk_dosyam.txt
 ```
 			
-> isareti oncesindeki icerigi sonrasindaki dosyaya kaydeder. - uzerine yaziyor, dikkat!
+'>' isareti oncesindeki icerigi sonrasindaki dosyaya kaydeder. - uzerine yaziyor, dikkat!
 
 '>>' yine yonlendiriyor fakat eger o dosya ismi veri iceriyorsa sonuna ekler.
 
