@@ -66,14 +66,6 @@ Komut satirlarinda eski yazdiklarini gormek icin, bazen eski komutlari tekrar ca
 
 Satir basina gitmek icin Ctrl + a ya basin, sona gitmek icin ya saga ok, ya da yukari asagi oklar.
 
-
-## Cok onemli bir ozellik - komut tarihcesi (history):
-```
-history
-```
-			
-dersin sonunda bunu tekrar komutlayip yeni dosyaya kaydedebilirsiniz.
-
 ## Yeni bir dizin olustur:
 ```
 mkdir bash_dersi
@@ -89,35 +81,7 @@ cd ~
 ```
 cd <isminiz>/bash_dersi/
 ```
-/ isareti altdizin oldugunu belirtiyor & farkli altdizinleri hiyerarsiye gore diziyor – ust konumdan alt konuma dogru.
-
-## Yeni Dosya uretmek:
-```
-echo bu benim ilk dosyam > ilk_dosyam.txt
-```
-			
-'>' isareti oncesindeki icerigi sonrasindaki dosyaya kaydeder. - uzerine yaziyor, dikkat!
-
-'>>' yine yonlendiriyor fakat eger o dosya ismi veri iceriyorsa sonuna ekler.
-
-isminizi tasiyan dizinin icinde ilk_dosyam adinda bir dosya olusturduk. Icine de bu benim ilk dosyam yazdik.
-
-Dosya isimlendirmelerinizin mantikli, anlasilabilir, birbirleri ile iliskili olmasi cok ama cok onemli!
-
-Dosya isimlendirmelerine bosluk vermekten ve /, ‘, “, >, .  isartetlini kullanmaktan kacinalim. Bunlar komut satirinin kullandigi harfler oldugu icin dosya/dizin ismina koyarsak karisirlar.
-
-## Dosya silmek:
-```
-rm ilk_dosyam.txt
-```
-tum silmek istediklerimizi rm’un arkasina yazip tek tusla silebiliriz. 
-
-## Dizin silmek:
-```
-mkdir test_dizini
-ls
-rm -r test_dizini
-```
+/ isareti altdizin oldugunu belirtiyor & farkli altdizinleri hiyerarsiye gore diziyor – ust konumdan alt konuma dogru.		
 			
 # Buyuk text verileri ile calisma yontemleri (dizi verisini buyuk bir text verisi olarak dusunebilirsiniz):
 
@@ -152,14 +116,23 @@ Dosya ismini girerken mutlaka TAB kullanın! TAB'in zaman kazandirmasi disinda e
 
 ```
 cat *protein.fasta
-```			
+```
+yildiz isareti joker gibidir, herhangi bir harf ve harf dizisi anlamina gelir.
+
 ## Dosyalari tek bir dosyada toplamak:
 ```
-cd data
 cat *protein.fasta > proteins.fasta
 ```
-			
-yildiz isareti joker gibidir, herhangi bir harf ve harf dizisi anlamina gelir.
+'>' isareti oncesindeki icerigi sonrasindaki dosyaya kaydeder. - uzerine yaziyor, dikkat!
+
+'>>' yine yonlendiriyor fakat eger o dosya ismi veri iceriyorsa sonuna ekler.
+
+isminizi tasiyan dizinin icinde ilk_dosyam adinda bir dosya olusturduk. Icine de bu benim ilk dosyam yazdik.
+
+Dosya isimlendirmelerinizin mantikli, anlasilabilir, birbirleri ile iliskili olmasi cok ama cok onemli!
+
+Dosya isimlendirmelerine bosluk vermekten ve /, ‘, “, >, .  isartetlini kullanmaktan kacinalim. Bunlar komut satirinin kullandigi harfler oldugu icin dosya/dizin ismina koyarsak karisirlar.			
+
 kaydetti mi kontrol ediyoruz:
 ```
 cat proteins.fasta
@@ -269,6 +242,27 @@ Diyelim ki protein isimlerini elde etmek istiyoruz:
 ```
 grep '>' proteins.fasta | cut -d ' ' -f 1
 ```
+
+## Dosya silmek:
+```
+rm proteins.fasta
+```
+tum silmek istediklerimizi rm’un arkasina yazip tek tusla silebiliriz. 
+
+## Dizin silmek:
+```
+cd ..
+rm -r bash_dersi
+```
+
+## Cok onemli bir ozellik - komut tarihcesi (history):
+```
+history
+```
+```
+history > bash_dersi_notlarim
+```			
+
 			
 
 SON
