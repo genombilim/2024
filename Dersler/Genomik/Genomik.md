@@ -157,13 +157,7 @@ Bu sorularin cevabini vermek icin dizilerimizin kapsam (coverage) ve derinlik, y
 - Derinligi incelemek icin python kullanacagiz. Bunun icin asagidaki python kodunu biliyorsaniz kendiniz python'da bilmiyorsaniz birlikte google colab'de calistiracagiz. Once samtools kullanarak derinlik dosyasini uretin. Gerekiyorsa onu sisteminize kopyalayin.
 ```
 samtools depth alignment_sorted.bam > depth.csv
-
-# bu kisim python'da
-import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
-dataset = pd.read_csv('depth.csv', sep='\t', names=["Chr", "Position", "Depth"])
-dataset
+python depth_coverage_analysis.py
  ```     
   # Varyantlari bulmak
 
