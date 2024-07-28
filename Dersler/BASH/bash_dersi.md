@@ -102,7 +102,7 @@ koseli parantez icinde verilen secenekler opsiyoneldir. Komut o secenekler olmad
 
 'man' sayfasindan ‘q’ ile cikabiliriz.
 
-## Yeni Dosya uretmek 1:
+## Yeni Dosya uretmek:
 
 ```
 cd <isminiz>/bash_dersi/
@@ -127,36 +127,16 @@ cat ilk_dosyam.txt
 cat komutu sonrasinda yazili olan dosyanin (dosyalarin) icergini gosterir. Bir kac dosya icerigini tek bir dosya kaydetmek icin de kullanabilecegi icin ismi concatanate’ten gelir. 
 Dosya ismini girerken mutlaka TAB kullanın! TAB'in zaman kazandirmasi disinda en onemli ozelligi hatalari onler
 
-## Yeni Dosya uretmek 2:
-```
-vim ikinci_dosyam.txt
-```
-Dosyanin icine girdiniz. I yazip icine bu benim ikinci dosyam yazin. Kaydedip cikmak icin once escape'e basin, sonra iki nokta ust uste yazip x yazin (:x). Kaydedip cikmis olacaksiniz.
-```
-ls
-cat ikinci_dosyam.txt
-```
-			
-dosya isimlerine txt eklersek word’de acabiliriz. Sart degil, genelde ihtiyac yok cunku buna. 
-
-## SORT ile veri dosyasi icerigini duzenlemek / istenilen sutuna gore siralamak:
-```
-cd ../../
-ls
-ls | sort
-ls | sort -r
-ls | sort --random-sort
-```
-			
 
 
-Dosya silmek:
+
+## Dosya silmek:
 ```
-rm ikinci_dosyam.txt birinci_dosyam
+rm birinci_dosyam
 ```
 tum silmek istediklerimizi rm’un arkasina yazip tek tusla silebiliriz. 
 
-Dizin silmek:
+## Dizin silmek:
 ```
 mkdir test_dizini
 ls
@@ -167,13 +147,10 @@ rm -r test_dizini
 
 Veri cok buyuk oldugundan text icin kullandiginiz grafik arayuzlu programlarin veriyi 'memory' uzerinde tutmasi cok masrafli olur. Gb buyuklugunde iki FASTA dosyasini birlestirmek isterseniz, birini acip kopyalayip-yapistirirken cok fazla memory'yi isgal etmis olursunuz, ayrica mouse ile bu islemi yaparken bir kismini silebilir, tumunu secemeyebilirsiniz vb. Sonunda yapacaginiz analiz & bulacaginiz sonuclar hatali olacaktir. Shell bu durumlarda hem memory'de yer tutmadan hem de sizden kaynaklanan hataya yol acmadan cozmenizi saglar.
 
-
-Once buyuk_veri diye bir dizinin olusturun ve o dizine gecin. Simdi o dizinimizi olusturalim.
-
 ## Dosyalari kopyalamak:
 ```
-cp ../../../egitim/bash_dersi_dosyalari/tb1-protein.fasta .
-cp ../../../egitim/bash_dersi_dosyalari/tga1-protein.fasta .
+cp ../../egitim/bash_dersi_dosyalari/tb1-protein.fasta .
+cp ../../egitim/bash_dersi_dosyalari/tga1-protein.fasta .
 ls
 ```
 			
@@ -228,7 +205,7 @@ grep -o CRGEG proteins.fasta
    
 Simdi de DNA fastası acalim.
 ```
-cp ../../../../egitim/bash_dersi_dosyalari/tb1.fasta .
+cp ../../../egitim/bash_dersi_dosyalari/tb1.fasta .
 cat tb1.fasta
 ```
 			
