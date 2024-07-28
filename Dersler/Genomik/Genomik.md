@@ -89,7 +89,11 @@ fastq_quality_filter -q 30 -p 95 -i reads_trimmed.fastq -o reads_filtered.fastq
 - Kesilmis ve filtrelenmis dosyalariniza da fastqc ile bakalim. Asagidaki komutlar html dosyalari üretecek. Bu dosyalari kendi lokal makinaniza indirin ve üstüne iki kere tiklayarak internette acin.
 ```
 fastqc reads.fastq
+```
+``` 
 fastqc reads_trimmed.fastq
+```
+``` 
 fastqc reads_filtered.fastq
 ```
 
