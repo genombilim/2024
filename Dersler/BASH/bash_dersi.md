@@ -96,16 +96,7 @@ ls
 			
 cp kendisinden sonra yazilan tum dosyalari en sondaki dizinin icine kopyalar. Nokta isareti icinde bulundugumuz dizini isaret eder.
 
-## Dosyalari bir dizinden digerine tasimak:
-```
-mkdir data
-```
-Dosyalari data dizinine tasiyalim:
-```
-mv tb1-protein.fasta data
-mv tga1-protein.fasta data
-ls
-```
+
 ## Dosyanin icine bakmak:
 ```
 cat tb1-protein.fasta
