@@ -40,7 +40,7 @@ cd Genomik
 
 ```
 
-# SRA'den Okumalari Indirelim
+# SRA'deki Okumalar
 
 SRA yani kisa dizi arsivi ozellikle yeni dizileme teknolojileri kullanilarak uretilmis genelde 1000 bazdan kisa dizilerin depolandigi bir veri tabanidir. SRA arastirmacilara kisa dizilerini kullanima acik olarak depolayabilecekleri bir yer gorevi gormekle kalmayip ayni zamanda aranilan diziye ve diziyle ilgili detayli deneysel bilgiye hizli bir erisime olanak verir. https://www.ncbi.nlm.nih.gov/sra
 
@@ -48,9 +48,7 @@ sra'in kendi araci olan sra toolkit'in icinden fastq-dump komutuyla okumalari in
 
 
 Bugun biz size zaten okumalari indirdik. Onu kendi dosyaniza kopyalayacaksiniz. https://hpc.nih.gov/apps/sratoolkit.html
-
-- Okumalarinizi fastq-dump'i kullanarak indirin:  
-
+ 
 ```
 cp ../../egitim/reads.fastq .
   ```
