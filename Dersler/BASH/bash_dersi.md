@@ -106,17 +106,6 @@ Dosya isimlendirmelerinizin mantikli, anlasilabilir, birbirleri ile iliskili olm
 
 Dosya isimlendirmelerine bosluk vermekten ve /, ‘, “, >, .  isartetlini kullanmaktan kacinalim. Bunlar komut satirinin kullandigi harfler oldugu icin dosya/dizin ismina koyarsak karisirlar.
 
-Dosyanin icine bakmak:
-```
-cat ilk_dosyam.txt
-```
-			
-cat komutu sonrasinda yazili olan dosyanin (dosyalarin) icergini gosterir. Bir kac dosya icerigini tek bir dosya kaydetmek icin de kullanabilecegi icin ismi concatanate’ten gelir. 
-Dosya ismini girerken mutlaka TAB kullanın! TAB'in zaman kazandirmasi disinda en onemli ozelligi hatalari onler
-
-
-
-
 ## Dosya silmek:
 ```
 rm ilk_dosyam.txt
@@ -153,7 +142,17 @@ mv tb1-protein.fasta data
 mv tga1-protein.fasta data
 ls
 ```
+## Dosyanin icine bakmak:
+```
+cat tb1-protein.fasta
+```
 			
+cat komutu sonrasinda yazili olan dosyanin (dosyalarin) icergini gosterir. Bir kac dosya icerigini tek bir dosya kaydetmek icin de kullanabilecegi icin ismi concatanate’ten gelir. 
+Dosya ismini girerken mutlaka TAB kullanın! TAB'in zaman kazandirmasi disinda en onemli ozelligi hatalari onler.
+
+```
+cat *protein.fasta
+```			
 ## Dosyalari tek bir dosyada toplamak:
 ```
 cd data
