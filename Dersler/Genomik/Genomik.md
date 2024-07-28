@@ -124,23 +124,10 @@ Biz yerlestirme icin bowtie2 programini kullanacagiz.
 bowtie2-build ref.fasta ref
  ```    
 
-Yerlestirme icin ilk asama SAM (Sequence Alignment/Map) dosyasini uretmek. Bu asamayi komut satirindan yaparsaniz, uzun surdugu icin bunu bir script olarak yazip is olarak yollayacagiz. Bunun icin is scriptini asagidaki gibi kendinize kopyalayin ve calistirin. 
+Yerlestirme icin ilk asama SAM (Sequence Alignment/Map) dosyasini uretmek: 
 ```
-cp ../../egitim/samtools.sh .
-```
-``` 
-sbatch samtools.sh
-
- ```    
-Bu arada koda bakalim. Sonra da bitmis mi diye kontrol edelim.
-
-```
-cat samtools.sh
-```
-``` 
-sacct
-
-```    
+bowtie2 -x ref -q reads_filtered.fastq -S alignment.sam
+```   
 
 SAM dosyasi insan gozunun okuyabilecegi text formatinda bir dosyadir ve icinde her bir dizi icin bir baslik bir de yerlestirmeyle ilgili detaylarin yer aldigin bir kisim vardir. Dosyanin ilk satirlarini acip icine bir goz atabilirsin. Yandaki link dosya icerigiyle ilgili daha detayli bilgi verir: https://samtools.github.io/hts-specs/SAMv1.pdf
 
@@ -157,8 +144,6 @@ samtools sort alignment.bam -o alignment_sorted.bam
 ``` 
 samtools index alignment_sorted.bam
  ```    
-
-Yerlestirme bitince ekranda kisa bir rapor belirecek. 
 
 SAM dosyasini analiz etmek icin SAMTools programini kulliyoruz. Her programin kendi indexleme sekli oldugundan referans genomumuzu asagidaki komutu kullanarak tekrar indexlememiz gerek. Bu ref.fasta.fai. isimli bir dosya uretti. 
 Son olarak SAM dosyamizi BAM (Binary Alignment/Map)’e cevirdik.
@@ -177,6 +162,8 @@ Bu sorularin cevabini vermek icin dizilerimizin kapsam (coverage) ve derinlik, y
 - Derinligi incelemek icin python kullanacagiz. Bunun icin asagidaki python kodunu biliyorsaniz kendiniz python'da bilmiyorsaniz birlikte google colab'de calistiracagiz. Once samtools kullanarak derinlik dosyasini uretin. Gerekiyorsa onu sisteminize kopyalayin.
 ```
 samtools depth alignment_sorted.bam > depth.csv
+```
+```
 python depth_coverage_analysis.py
 ```     
   # Varyantlari bulmak
