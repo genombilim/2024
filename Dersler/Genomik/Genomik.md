@@ -104,7 +104,11 @@ Neden once kestik, sonra filtreledik?
 - Mitokondri icin referans genomunu indirecegiz. Bunun icin UCSC genome browser'ina gidin, Download kismindan sirasiyla Human, Chromosomes Chromosome M'i bulun.. Link yazan kisma buldugunuz dosyanin linkini kopyalayin:
 ```
 wget ‘link’
+```
+``` 
 gunzip chrM.fa.gz
+```
+``` 
 cp chrM.fa ref.fasta
 ```    
 Dizileri yerlestirmek eslestirmece oyunu gibi dusunulebilir. Amac kisa dizilerin aynilarini (veya benzerlerini) buyuk dizide yani genomda bulmaktir. 
@@ -123,6 +127,8 @@ bowtie2-build ref.fasta ref
 Yerlestirme icin ilk asama SAM (Sequence Alignment/Map) dosyasini uretmek. Bu asamayi komut satirindan yaparsaniz, uzun surdugu icin bunu bir script olarak yazip is olarak yollayacagiz. Bunun icin is scriptini asagidaki gibi kendinize kopyalayin ve calistirin. 
 ```
 cp ../../egitim/samtools.sh .
+```
+``` 
 sbatch samtools.sh
 
  ```    
@@ -130,17 +136,25 @@ Bu arada koda bakalim. Sonra da bitmis mi diye kontrol edelim.
 
 ```
 cat samtools.sh
+```
+``` 
 sacct
 
- ```    
+```    
 
 SAM dosyasi insan gozunun okuyabilecegi text formatinda bir dosyadir ve icinde her bir dizi icin bir baslik bir de yerlestirmeyle ilgili detaylarin yer aldigin bir kisim vardir. Dosyanin ilk satirlarini acip icine bir goz atabilirsin. Yandaki link dosya icerigiyle ilgili daha detayli bilgi verir: https://samtools.github.io/hts-specs/SAMv1.pdf
 
 - Referansa hizalayalim:
 ```
 samtools faidx ref.fasta
+```
+``` 
 samtools view -bt ref.fasta.fai alignment.sam > alignment.bam
+```
+``` 
 samtools sort alignment.bam -o alignment_sorted.bam
+```
+``` 
 samtools index alignment_sorted.bam
  ```    
 
@@ -164,7 +178,7 @@ Bu sorularin cevabini vermek icin dizilerimizin kapsam (coverage) ve derinlik, y
 ```
 samtools depth alignment_sorted.bam > depth.csv
 python depth_coverage_analysis.py
- ```     
+```     
   # Varyantlari bulmak
 
 Varyantlari tespit demek referans genom ve elimizdeki dizi arasindaki mutasyonlari bulacağız demek. Bunun icin bcftools’u kullanacagiz. 
@@ -174,6 +188,8 @@ Kullandigimiz yerlestirme teknikleri kisa dizileri dogru yerlerine her zaman cok
 - Varyantlari bulalim:
 ```
 cp ../../egitim/bcf.sh .
+```
+``` 
 sbatch bcf.sh
 
  ```  
@@ -185,18 +201,18 @@ sbatch bcf.sh
 
 ```
 cat bcf.sh
+```
+``` 
 sacct
-
- ```    
+```    
  
 - VCF dosyasini analiz etmek icin varyantlarin indexlenmesi gerekebilir. Bunun icin asagidaki komutu girecegiz:
 ```
 bcftools index calls.vcf.gz
-		
-  ```     
+```     
   # Varyantlara ilk Analiz
   
 - VCF dosyasinin icinde ne var? Bcftools’un çok yararlı bir istatistik komutu bize bunu soyleyebilir: 
 ```
 bcftools stats calls.vcf.gz
- ```     
+```     
