@@ -29,6 +29,8 @@ ssh egitimXX@levrek1.ulakbim.gov.tr
 cd ../egitim
 source miniconda3/bin/activate 
 conda activate bioinformatics
+```
+```
 cd ../egitimXX	 
 ```
 
