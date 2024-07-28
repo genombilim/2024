@@ -155,7 +155,7 @@ grep -o CRGEG proteins.fasta
    
 Simdi de DNA fastası acalim.
 ```
-cp ../../../../egitim/bash_dersi_dosyalari/tb1.fasta .
+cp ../../../egitim/bash_dersi_dosyalari/tb1.fasta .
 cat tb1.fasta
 ```
 			
