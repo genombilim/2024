@@ -165,9 +165,6 @@ Icine kısaca bakalım:
 head tb1.fasta
 ```
 ```
-cat tb1.fasta
-```
-```
 tail tb1.fasta
 ```
 ```
@@ -182,12 +179,6 @@ Eger .txt dosyasi 3 adet bos satir iceriyorsa (whitespace) wc veriye dair 3 fazl
  
 Bu dosyanın icinde ATCG olmayan bir nükleotitler var mi?
 
-```
-grep -v A tb1.fasta
-```
-```
-grep -v ATCG tb1.fasta
-```
 ```
 grep --color -i "[^ATCG]" tb1.fasta
 ```
