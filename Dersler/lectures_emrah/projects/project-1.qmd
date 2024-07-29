@@ -17,7 +17,7 @@ Hedefler:
 4. Test verisinin kullanılarak, model başarı metriklerinin elde edilmesi
 5. Hangi değişkenlerin daha yüksek tahmin performansı gösterdiklerinin belirlenmesi
 
-Bu çalışma iki tane biber içermektedir.
+**BU ÇALIŞMA 3 TANE BİBER İÇERİR**
 
 # Veri
 
