@@ -105,6 +105,11 @@ Neden once kestik, sonra filtreledik?
 ```
 wget ‘link’
 ```
+veya
+```
+ rsync -avzP rsync:link
+```
+daha sonra
 ``` 
 gunzip chrM.fa.gz
 ```
