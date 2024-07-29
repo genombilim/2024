@@ -1,0 +1,45 @@
+---
+title: "Naive Bayes ile Meme Kanseri Verisi Analizi"
+author: "Emrah Kırdök, Ph.D."
+date: "29-07-2024"
+
+---
+
+# Amaç
+
+Meme kanseri dokularının sitolojik analizlerinden elde edilen ölçümleri kullanarak, bir dokunun meme kanserine sahip olup olmadığının tahmin edilmesi.
+
+Hedefler:
+
+1. Verinin tanımsal olarak incelenmesi ve her değişkenin ne anlama geldiğinin açık bir şekilde belirtilmesi
+2. Değişkenlerin meme kanseri durumu ile ilişkilerinin histogram, kutu grafiği vb tekniklerle görselleştirilmesi
+3. Verinin *train* (model oluşturma) ve *test* (modeli test etme) isimli iki parçaya ayrılması
+4. Test verisinin kullanılarak, model başarı metriklerinin elde edilmesi
+5. Hangi değişkenlerin daha yüksek tahmin performansı gösterdiklerinin belirlenmesi
+
+Bu çalışma iki tane biber içermektedir.
+
+# Veri
+
+Aşağıda gösterilen bağlantıdan ulaşabilirsiniz:
+
+
+Veri ile ilgili daha ayrıntılı bilgi aşağıdaki adreste:
+
+[https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic](https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic)
+
+
+# Metodoloji
+
+Çalışma kapsamında R istatstiksel paket programı kullanılacaktır. 
+
+Veriyi %70 train ve %30 test şeklinde bölmek için [`caret`](https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic) paketinde bulunan `createDataPartition` fonksiyonu kullanılabilir.
+
+Parametre kontrolü için `caret` içinde bulunan `trainControl` fonksiyonunu kullanabilirsiniz.
+
+Model train etmek için `caret` içinde bulunan `train` fonksiyonunu kullanabilirsiniz.
+
+Karmaşa matrisi için `caret` içinde bulunan `confusionMatrix` fonksiyonunu kullanınız.
+
+En iyi tahmin performansına sahip değişkenleri belirlemek için `caret` içinde bulunan `varImp` fonksiyonunu kullanabilirsiniz.
+
