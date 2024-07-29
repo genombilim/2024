@@ -23,6 +23,7 @@ Bu çalışma iki tane biber içermektedir.
 
 Aşağıda gösterilen bağlantıdan ulaşabilirsiniz:
 
+[veri](https://raw.githubusercontent.com/emrahkirdok/ybva/main/05-istatistik/data.csv)
 
 Veri ile ilgili daha ayrıntılı bilgi aşağıdaki adreste:
 
