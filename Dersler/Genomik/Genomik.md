@@ -24,14 +24,9 @@ ssh egitimXX@levrek1.ulakbim.gov.tr
 şifre: adiniza verilen şifre
 ```
 
-- Kullanacagimiz programlari hesabiniza yuklemek icin asagidaki satirlari girin. Son satira XX yerine yine size verilrn numarayi girin lutfen. Yoksa son satir hata verecektir.  
-```
-cd ../egitim
-source miniconda3/bin/activate 
+- Kullanacagimiz programlari hesabiniza yuklemek icin asagidaki satiri girin. 
+``` 
 conda activate bioinformatics
-```
-```
-cd ../egitimXX	 
 ```
 
 - Genomik diye bir dizin olusturun.
@@ -39,7 +34,6 @@ cd ../egitimXX
 ```
 mkdir Genomik
 cd Genomik
-
 ```
 
 # SRA'deki Okumalar
