@@ -101,7 +101,7 @@ wget ‘link’
 ```
 veya
 ```
-curl -O 'ftp://hgdownload.cse.ucsc.edu/goldenPath/hg38/chromosomes/chrM.fa.gz'
+rsync -avzP rsync://hgdownload.cse.ucsc.edu/goldenPath/hg38/chromosomes/chrM.fa.gz .
 ```
 daha sonra
 ``` 
