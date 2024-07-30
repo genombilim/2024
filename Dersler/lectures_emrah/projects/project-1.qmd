@@ -1,46 +1,55 @@
 ---
-title: "Naive Bayes ile Meme Kanseri Verisi Analizi"
+title: "Makine öğrenmesi yöntemleri ile meme kanseri verisi analizi"
 author: "Emrah Kırdök, Ph.D."
 date: "29-07-2024"
-
 ---
 
 # Amaç
 
-Meme kanseri dokularının sitolojik analizlerinden elde edilen ölçümleri kullanarak, bir dokunun meme kanserine sahip olup olmadığının tahmin edilmesi.
+Bu proje kapsamında meme kanseri dokularının sitolojik analizlerinden elde edilen ölçümleri kullanarak aşağıdaki maddeler amaçlanmıştır:
+
+1. Bir dokunun meme kanseri olup olmadağını tahmin eden makine öğrenmesi modelleri geliştirmek
+2. Elde edilen makine öğrenmesi modellerinin performans metriklerini hesaplamak
+3. Performans metriklerinin karşılaştırılması
 
 Hedefler:
 
-1. Verinin tanımsal olarak incelenmesi ve her değişkenin ne anlama geldiğinin açık bir şekilde belirtilmesi
-2. Değişkenlerin meme kanseri durumu ile ilişkilerinin histogram, kutu grafiği vb tekniklerle görselleştirilmesi
+1. Projenin makalesinin okunarak, verinin tanımsal olarak incelenmesi ve her değişkenin ne anlama geldiğinin açık bir şekilde belirtilmesi
+2. Değişkenlerin meme kanseri durumu ile ilişkilerinin histogram, kutu grafiği gibi tekniklerle görselleştirilmesi
 3. Verinin *train* (model oluşturma) ve *test* (modeli test etme) isimli iki parçaya ayrılması
-4. Test verisinin kullanılarak, model başarı metriklerinin elde edilmesi
+4. Yöntem kısmında belirtilen `caret` kütüphanesi ile farklı makine öğrenmesi modellerinin oluşturulması
+4. *Train* verisi kullanılarak, model başarı metriklerinin elde edilmesi
 5. Hangi değişkenlerin daha yüksek tahmin performansı gösterdiklerinin belirlenmesi
 
-**BU ÇALIŞMA 3 TANE BİBER İÇERİR**
+# Veri ve yöntem
 
-# Veri
+## Veri
 
-Aşağıda gösterilen bağlantıdan ulaşabilirsiniz:
+Çalışmada kullanılacak veriye aşağıda gösterilen bağlantıdan ulaşabilirsiniz:
 
 [veri](https://raw.githubusercontent.com/emrahkirdok/ybva/main/05-istatistik/data.csv)
+
+Bu veri, Wisconsin meme kanseri tanı ve teşhisi için çekirdek bileşen özetleme projesinden elde edilmiştir. Projenin makalesine [bu bağlantıdan](https://minds.wisconsin.edu/bitstream/handle/1793/59692/TR1131.pdf;jsessionid=420211FD24DDFC6C5A70FA14A5F4FAD8?sequence=1) ulaşabilirsiniz. Öncelikle bu çalışmayı okuyarak verinin niteliğini anlayalım. 
 
 Veri ile ilgili daha ayrıntılı bilgi aşağıdaki adreste:
 
 [https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic](https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic)
 
+## Yöntem
 
-# Metodoloji
+Çalışma kapsamında R istatstiksel paket programı kullanılacaktır. Bu program üzerinde çalışan `caret` paketinde, makine öğrenmesi modelleri geliştirmek için gerekli olan fonksiyonlar bulumanktadır:
 
-Çalışma kapsamında R istatstiksel paket programı kullanılacaktır. 
++ `caret` paketi 
++ Veriyi %70 train ve %30 test şeklinde bölmek için`createDataPartition` fonksiyonu kullanılabilir.
++ Parametre kontrolü için `trainControl` fonksiyonunu kullanabilirsiniz.
++ Model train etmek için `train` fonksiyonunu kullanabilirsiniz.
++ Karmaşa matrisi için `confusionMatrix` fonksiyonunu kullanınız.
++ En iyi tahmin performansına sahip değişkenleri belirlemek için `varImp` fonksiyonunu kullanabilirsiniz.
 
-Veriyi %70 train ve %30 test şeklinde bölmek için [`caret`](https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic) paketinde bulunan `createDataPartition` fonksiyonu kullanılabilir.
+Bunun dışında aşağıdaki paketler de grafik oluşturma adımlarında kullanılabilir:
 
-Parametre kontrolü için `caret` içinde bulunan `trainControl` fonksiyonunu kullanabilirsiniz.
++ `ggplot2`
 
-Model train etmek için `caret` içinde bulunan `train` fonksiyonunu kullanabilirsiniz.
+## Dökümantasyon
 
-Karmaşa matrisi için `caret` içinde bulunan `confusionMatrix` fonksiyonunu kullanınız.
-
-En iyi tahmin performansına sahip değişkenleri belirlemek için `caret` içinde bulunan `varImp` fonksiyonunu kullanabilirsiniz.
-
+Proje kapsamında yazılacak raporlarda ve sunumlarda Rmarkdown `Rmd` veya Qmarkdown `qmd` tekrar edilebilir döküman formatları kullanılması tavsiye edilmektedir.
