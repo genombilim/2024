@@ -77,7 +77,13 @@ metaphlan data/SRS014459-Stool.fasta.gz \
 Ancak metagenomik araçlar genellikle fazla hafıza ve işlemci gücü kullanırlar. O yüzden bu komutları bir `sbatch` dosyası ile çalıştırsak daha iyi olur:
 
 ```bash
-less metaphlan-1.sh
+sbatch metaphlan-1.sh
+```
+
+Şimdi de işler çalışıyor mu ona bakalım:
+
+```bash
+squeue
 ```
 
 Oluşan dosyalara bakalım. Önce rapor dosyası:
@@ -114,7 +120,6 @@ sbatch metaphlan-2.sh SRS014494-Posterior_fornix
 
 ```bash
 squeue
-
 ```
 
 Bittiğinde kontrol edelim:
