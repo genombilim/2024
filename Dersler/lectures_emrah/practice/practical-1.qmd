@@ -8,13 +8,13 @@ date: "2024-07-31"
 Öncelikle github deposunu klonlayalım. Pratik kapsamında kullanacağımız bütün kodlar burada olacak:
 
 ```bash
-git clone
+git clone https://github.com/genombilim/2024.git
 ```
 
 Şimdi de çalışma klasörüne gidelim:
 
 ```bash
-cd 2024/lectures_emrah/practice/
+cd 2024/Dersler/lectures_emrah/practice/
 ```
 
 Burada verilerimiz için öncelikle klasörlerimizi oluşturalım:
@@ -22,12 +22,19 @@ Burada verilerimiz için öncelikle klasörlerimizi oluşturalım:
 ```bash
 mkdir data
 mkdir -p results/metaphlan/
+mkdir logs
 ```
 
 Şimdi de `${PATH}` değişkenini ayarlayalım. Pratik kapsamında kullanacağımız programlara bu şekilde erişebiliriz. Kullanacağımız betiklere de öncelikle bu satırı eklemeliyiz:
 
 ```bash
 export PATH=/truba/home/egitim/miniconda3/envs/anmet4evogen/bin:${PATH}
+```
+
+Ya da conda modülünü aktive etmeliyiz. İksini de farklı koşullarda kullanabilrsiniz:
+
+```bash
+conda activate anmet4evogen
 ```
 
 ## Metaphlan3 veri tabanı
@@ -49,7 +56,7 @@ ls /truba/home/egitim/Workshop_emrah/data/
 Dosyaları kopyalayalım:
 
 ```bash
-cp -r /truba/home/egitim/Workshop_emrah/data/*gz data/
+cp /truba/home/egitim/Workshop_emrah/data/*gz data/
 
 ls data
 ```
@@ -57,7 +64,6 @@ ls data
 ## Metapham3 kullanımı
 
 Aşağıdaki komut ile bir dosyayı çalıştırabiliriz:
-
 
 ```bash
 metaphlan data/SRS014459-Stool.fasta.gz \

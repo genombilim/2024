@@ -3,8 +3,10 @@
 #SBATCH --job-name=metaphlan
 #SBATCH --partition=barbun
 #SBATCH --ntasks-per-node=4
-#SBATCH --output=slurm-%j.out
-#SBATCH --error=slurm-%j.err
+#SBATCH --output=logs/slurm-%j.out
+#SBATCH --error=logs/slurm-%j.err
+
+export PATH=/truba/home/egitim/miniconda3/envs/anmet4evogen/bin:${PATH}
 
 metaphlan data/SRS014459-Stool.fasta.gz \
     --input_type fasta \
