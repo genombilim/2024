@@ -145,7 +145,7 @@ grep -E "s__|clade" results/metaphlan/merged-table.txt | sed 's/^.*s__//g'\ | cu
 ## Isı haritası elde edelim
 
 ```bash
-hclust2.py -i results/metaphlan/merged_abundance_table_species.txt -o abundance_heatmap_species.png --f_dist_f braycurtis --s_dist_f braycurtis 
+hclust2.py -i results/metaphlan/merged_abundance_table_species.txt -o results/metaphlan/abundance_heatmap_species.png --f_dist_f braycurtis --s_dist_f braycurtis 
 ```
 
 Bir ısı haritası elde edebiliriz bu şekilde.
