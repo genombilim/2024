@@ -8,3 +8,4 @@ Github sayfamiza hosgeldiniz. Okulla ilgili tum bilgi ve dosyalari buraya yükle
 
 <img width="1437" alt="Bildschirmfoto 2024-07-31 um 15 10 51" src="https://github.com/user-attachments/assets/26b99fbf-c79b-4377-8371-96756f23b7cc">
 
+<img width="744" alt="Bildschirmfoto 2024-08-01 um 12 09 25" src="https://github.com/user-attachments/assets/1adabc04-2725-4916-9f54-447c0bf91c00">
